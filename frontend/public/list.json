@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "price": "0.00",
+      "category": "free",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 2,
+      "title": "To Kill a Mockingbird",
+      "price": 8.49,
+      "category": "paid",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 3,
+      "title": "1984",
+      "price": "0.00",
+      "category": "free",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 4,
+      "title": "Pride and Prejudice",
+      "price": 6.99,
+      "category": "paid",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description":"1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 5,
+      "title": "The Catcher in the Rye",
+      "price": 5.99,
+      "category": "paid",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 6,
+      "title": "Alice in Wonderland",
+      "price": "0.00",
+      "category": "free",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description":"1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 7,
+      "title": "Moby Dick",
+      "price": 12.99,
+      "category": "paid",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 8,
+      "title": "The Lord of the Rings",
+      "price": "0.00",
+      "category": "free",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 9,
+      "title": "Moby Dick",
+      "price": "0.00",
+      "category": "free",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    },
+    {
+      "id": 10,
+      "title": "The Lord of the Rings",
+      "price": "0.00",
+      "category": "free",
+      "image": "https://img.freepik.com/premium-vector/teachers-day-celebrations-recognizing-vital-role-educators_136558-82179.jpg?w=740",
+      "description": "1984 is a dystopian social science fiction novel by English novelist George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime."
+    }
+    
+]
