@@ -1,16 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useLocation, useNavigate } from 'react-router-dom'; 
 import { useForm } from "react-hook-form";
-import Login from './Login';
-
+import axios from "axios";
+import toast from 'react-hot-toast';
 function SignUp() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/';
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      fullname: data.fullname,
+      email: data.email,
+      password: data.password
+    }
+    
+    await axios.post("http://localhost:4001/user/signup", userInfo).then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          toast.success('Signed up Successfully!');
+          navigate(from, { replace: true });
+      }
+      localStorage.setItem("Users",JSON.stringify(res.data.user))
+      }).catch((err) => {
+        if (err.response) {
+          toast.error(err.response.data.message);
+        }
+      });
+  };
 
   return (
     <div>
@@ -58,6 +80,7 @@ function SignUp() {
                       className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                       type="text"
                       placeholder="Enter your name"
+                      {...register("fullname", { required: true })} 
                     />
                     <input
                       className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -78,27 +101,24 @@ function SignUp() {
                       {...register("password", { required: true })} 
                     />
                     {errors.password && <span className='text-red-500 font-normal'>This field is required</span>}
-                    <Link >
-                      <button className="mt-5 tracking-wide font-semibold bg-blue-900 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                        <svg
-                          className="w-6 h-6 -ml-2"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                          <circle cx="8.5" cy="7" r="4" />
-                          <path d="M20 8v6M23 11h-6" />
-                        </svg>
-                        <span className="ml-3">Sign Up</span>
-                      </button>
-                    </Link>
+                    <button type="submit" className="mt-5 tracking-wide font-semibold bg-blue-900 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                      <svg
+                        className="w-6 h-6 -ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="8.5" cy="7" r="4" />
+                        <path d="M20 8v6M23 11h-6" />
+                      </svg>
+                      <span className="ml-3">Sign Up</span>
+                    </button>
                     <p className="mt-6 text-xs text-gray-600 text-center">
                       Already have an account?{' '}
                       <span className="text-blue-900 font-semibold" onClick={() => document.getElementById('login_pop_up').showModal()}>Sign in</span>
-                      <Login/>
                     </p>
                   </div>
                 </form>

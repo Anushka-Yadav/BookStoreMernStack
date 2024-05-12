@@ -1,5 +1,5 @@
 import User from "../Model/user.model.js";
-
+import bcryptjs from "bcryptjs"
 
 export const signup = async(req, res) => {
     try {
@@ -8,18 +8,46 @@ export const signup = async(req, res) => {
         if (user) {
             return res.status(400).json({ message: "User already exists" })
         }
-        else {
+        const hashedPassword = await bcryptjs.hash(password, 12)
+        
             const createdUser = new User({
-                fullname,
-                email,
-                password
+                fullname:fullname,
+                email:email,
+                password:hashedPassword
             })
             await createdUser.save()
-            res.status(201).json({ message: "User created successfully" })
-        }
+        res.status(201).json({
+            message: "User created successfully", user: {
+                _id:createdUser._id,
+                fullname: createdUser.fullname,
+                email:createdUser.email
+            
+            }})
+        
     } catch (error) {
         console.log("error:", error)
         res.status(500).json(error)
         
+    }
+}
+
+
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        const isMatch = await bcryptjs.compare(password, user.password)
+        if (!user || !isMatch) {
+            return res.status(400).json({ message: "Invalid credentials" })
+        }
+        res.status(200).json({
+            message: "Login success", user: {
+                _id:user._id,
+                fullname: user.fullname,
+            email:user.email
+        }})
+    } catch (error) {
+        console.log("error:", error)
+        res.status(500).json(error)
     }
 }

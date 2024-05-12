@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-
+import axios from 'axios';
+import toast from 'react-hot-toast';
 function Login() {
   const {
     handleSubmit,
@@ -9,7 +10,35 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async(data) => {
+    try {
+      const userInfo = {
+        email: data.email,
+        password: data.password
+      };
+      const response = await axios.post("http://localhost:4001/user/login", userInfo);
+      console.log(response.data);
+      if (response.data) {
+        toast.success('Logged in Successfully');
+        
+          document.getElementById('login_pop_up').close();
+        setTimeout(() => {
+          localStorage.setItem("Users", JSON.stringify(response.data));
+        window.location.reload();
+        }, 1000);
+        
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Error logging in. Please try again.");
+
+      }
+      setTimeout(() => {}, 3000);
+    }
+  };
 
   return (
     <div>
